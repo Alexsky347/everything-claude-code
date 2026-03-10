@@ -133,14 +133,17 @@ cp -r everything-claude-code/rules/golang/* ~/.claude/rules/
 ### ステップ3：使用開始
 
 ```bash
-# コマンドを試す
-/plan "ユーザー認証を追加"
+# コマンドを試す（プラグインはネームスペース形式）
+/everything-claude-code:plan "ユーザー認証を追加"
+
+# 手動インストール（オプション2）は短縮形式：
+# /plan "ユーザー認証を追加"
 
 # 利用可能なコマンドを確認
 /plugin list everything-claude-code@everything-claude-code
 ```
 
-✨ **完了です！** これで13のエージェント、37のスキル、31のコマンドにアクセスできます。
+✨ **完了です！** これで13のエージェント、43のスキル、31のコマンドにアクセスできます。
 
 ---
 
@@ -454,6 +457,7 @@ Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded fil
 > git clone https://github.com/affaan-m/everything-claude-code.git
 >
 > # オプション A：ユーザーレベルルール（すべてのプロジェクトに適用）
+> mkdir -p ~/.claude/rules
 > cp -r everything-claude-code/rules/common/* ~/.claude/rules/
 > cp -r everything-claude-code/rules/typescript/* ~/.claude/rules/   # スタックを選択
 > cp -r everything-claude-code/rules/python/* ~/.claude/rules/
@@ -776,7 +780,7 @@ npm install ecc-universal
 - **詳細ガイド（高度）:** [Everything Claude Code 詳細ガイド](https://x.com/affaanmustafa/status/2014040193557471352)
 - **フォロー:** [@affaanmustafa](https://x.com/affaanmustafa)
 - **zenith.chat:** [zenith.chat](https://zenith.chat)
-- **スキル ディレクトリ:** [awesome-agent-skills](https://github.com/JackyST0/awesome-agent-skills)
+- **スキル ディレクトリ:** awesome-agent-skills（コミュニティ管理のエージェントスキル ディレクトリ）
 
 ---
 

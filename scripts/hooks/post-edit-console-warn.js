@@ -17,7 +17,8 @@ process.stdin.setEncoding('utf8');
 
 process.stdin.on('data', chunk => {
   if (data.length < MAX_STDIN) {
-    data += chunk;
+    const remaining = MAX_STDIN - data.length;
+    data += chunk.substring(0, remaining);
   }
 });
 
@@ -28,7 +29,7 @@ process.stdin.on('end', () => {
 
     if (filePath && /\.(ts|tsx|js|jsx)$/.test(filePath)) {
       const content = readFile(filePath);
-      if (!content) { process.stdout.write(data); return; }
+      if (!content) { process.stdout.write(data); process.exit(0); }
       const lines = content.split('\n');
       const matches = [];
 

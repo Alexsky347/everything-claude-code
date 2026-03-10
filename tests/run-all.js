@@ -15,11 +15,13 @@ const testFiles = [
   'lib/package-manager.test.js',
   'lib/session-manager.test.js',
   'lib/session-aliases.test.js',
+  'lib/project-detect.test.js',
   'hooks/hooks.test.js',
   'hooks/evaluate-session.test.js',
   'hooks/suggest-compact.test.js',
   'integration/hooks.test.js',
   'ci/validators.test.js',
+  'scripts/claw.test.js',
   'scripts/setup-package-manager.test.js',
   'scripts/skill-create-output.test.js'
 ];
