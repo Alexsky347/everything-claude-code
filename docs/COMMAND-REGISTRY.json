@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "totalCommands": 75,
+  "totalCommands": 78,
   "commands": [
     {
       "command": "aside",
@@ -623,6 +623,52 @@
         "python-testing"
       ],
       "path": "commands/python-review.md"
+    },
+    {
+      "command": "react-build",
+      "description": "Fix React build failures (Vite, webpack, Next.js, CRA, Parcel, esbuild, Bun) incrementally — JSX/TSX compile errors, hydration mismatches, server/client component boundary failures, missing types. Invokes the react-build-resolver agent for minimal, surgical fixes.",
+      "type": "testing",
+      "primaryAgents": [
+        "react-build-resolver"
+      ],
+      "allAgents": [
+        "react-build-resolver"
+      ],
+      "skills": [
+        "react-patterns",
+        "frontend-patterns"
+      ],
+      "path": "commands/react-build.md"
+    },
+    {
+      "command": "react-review",
+      "description": "Comprehensive React/JSX code review for hook correctness, render performance, server/client component boundaries, accessibility, and React-specific security. Invokes the react-reviewer agent (and typescript-reviewer alongside on TSX/JSX changes).",
+      "type": "testing",
+      "primaryAgents": [
+        "react-reviewer"
+      ],
+      "allAgents": [
+        "react-reviewer",
+        "typescript-reviewer"
+      ],
+      "skills": [
+        "react-patterns",
+        "react-testing",
+        "accessibility"
+      ],
+      "path": "commands/react-review.md"
+    },
+    {
+      "command": "react-test",
+      "description": "Enforce TDD workflow for React. Write React Testing Library tests first (behavior-focused, accessibility-first), then implement components. Detects Vitest or Jest and verifies coverage targets.",
+      "type": "testing",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [
+        "react-testing",
+        "tdd-workflow"
+      ],
+      "path": "commands/react-test.md"
     },
     {
       "command": "quality-gate",
