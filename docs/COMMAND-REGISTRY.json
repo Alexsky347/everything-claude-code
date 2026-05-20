@@ -625,6 +625,15 @@
       "path": "commands/python-review.md"
     },
     {
+      "command": "quality-gate",
+      "description": "Run the ECC quality pipeline for a file or project scope and report remediation steps.",
+      "type": "general",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [],
+      "path": "commands/quality-gate.md"
+    },
+    {
       "command": "react-build",
       "description": "Fix React build failures (Vite, webpack, Next.js, CRA, Parcel, esbuild, Bun) incrementally — JSX/TSX compile errors, hydration mismatches, server/client component boundary failures, missing types. Invokes the react-build-resolver agent for minimal, surgical fixes.",
       "type": "testing",
@@ -635,8 +644,8 @@
         "react-build-resolver"
       ],
       "skills": [
-        "react-patterns",
-        "frontend-patterns"
+        "frontend-patterns",
+        "react-patterns"
       ],
       "path": "commands/react-build.md"
     },
@@ -645,16 +654,17 @@
       "description": "Comprehensive React/JSX code review for hook correctness, render performance, server/client component boundaries, accessibility, and React-specific security. Invokes the react-reviewer agent (and typescript-reviewer alongside on TSX/JSX changes).",
       "type": "testing",
       "primaryAgents": [
-        "react-reviewer"
+        "react-reviewer",
+        "typescript-reviewer"
       ],
       "allAgents": [
         "react-reviewer",
         "typescript-reviewer"
       ],
       "skills": [
+        "accessibility",
         "react-patterns",
-        "react-testing",
-        "accessibility"
+        "react-testing"
       ],
       "path": "commands/react-review.md"
     },
@@ -665,19 +675,12 @@
       "primaryAgents": [],
       "allAgents": [],
       "skills": [
+        "accessibility",
+        "e2e-testing",
         "react-testing",
         "tdd-workflow"
       ],
       "path": "commands/react-test.md"
-    },
-    {
-      "command": "quality-gate",
-      "description": "Run the ECC quality pipeline for a file or project scope and report remediation steps.",
-      "type": "general",
-      "primaryAgents": [],
-      "allAgents": [],
-      "skills": [],
-      "path": "commands/quality-gate.md"
     },
     {
       "command": "refactor-clean",
@@ -854,7 +857,7 @@
       "planning": 2,
       "refactoring": 1,
       "review": 9,
-      "testing": 47
+      "testing": 50
     },
     "topAgents": [
       {
@@ -904,15 +907,19 @@
         "count": 6
       },
       {
+        "skill": "tdd-workflow",
+        "count": 4
+      },
+      {
+        "skill": "accessibility",
+        "count": 3
+      },
+      {
         "skill": "flutter-dart-code-review",
         "count": 3
       },
       {
         "skill": "rust-patterns",
-        "count": 3
-      },
-      {
-        "skill": "tdd-workflow",
         "count": 3
       },
       {
@@ -933,10 +940,6 @@
       },
       {
         "skill": "golang-testing",
-        "count": 2
-      },
-      {
-        "skill": "kotlin-patterns",
         "count": 2
       }
     ]
