@@ -108,7 +108,7 @@ Prefixed env vars are bundled into the client. Treat them as public.
 |---|---|---|
 | Next.js | `NEXT_PUBLIC_*` | All others |
 | Vite | `VITE_*` | `.env` server-side only |
-| Create React App | `REACT_APP_*` | None — CRA exposes all |
+| Create React App | `REACT_APP_*`, plus `NODE_ENV` and `PUBLIC_URL` | All others (anything without the `REACT_APP_` prefix is server-side only) |
 | Remix | `process.env` access in `loader`/`action` only | Same |
 
 ```ts

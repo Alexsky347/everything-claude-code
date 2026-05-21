@@ -45,7 +45,7 @@ Prefer Vitest for new Vite-based projects; respect Jest for existing setups.
 
 ## Example Session
 
-```text
+````text
 User: /react-test I need a SearchInput component with debounced search
 
 Agent:
@@ -173,7 +173,7 @@ $ vitest run --coverage src/components/SearchInput.test.tsx
 ```
 
 ## TDD Complete!
-```
+````
 
 ## Test Patterns
 

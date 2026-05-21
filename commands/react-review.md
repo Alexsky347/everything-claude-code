@@ -84,7 +84,7 @@ npx eslint . --ext .tsx,.jsx,.ts,.js
 
 # Typecheck (skip cleanly for JS-only projects)
 npm run typecheck --if-present
-tsc --noEmit -p tsconfig.json
+[ -f tsconfig.json ] && tsc --noEmit -p tsconfig.json
 
 # Targeted a11y rules
 npx eslint . --rule 'jsx-a11y/alt-text: error' \

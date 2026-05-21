@@ -203,8 +203,13 @@ test("useCounter accepts initial value", () => {
 });
 
 test("useUser fetches user data", async () => {
+  // Instantiate QueryClient ONCE per test outside the wrapper so it survives re-renders.
+  // Creating it inside the wrapper closure resets cache state on every render, producing flaky tests.
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  });
   const wrapper = ({ children }: { children: React.ReactNode }) => (
-    <QueryClientProvider client={new QueryClient()}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 
   const { result } = renderHook(() => useUser("1"), { wrapper });
@@ -385,16 +390,20 @@ function Broken() {
 }
 
 test("error boundary renders fallback", () => {
-  // Suppress React's console.error noise for expected throw
-  vi.spyOn(console, "error").mockImplementation(() => {});
+  // Suppress React's console.error noise for the expected throw, then restore so
+  // the spy does not leak across tests and hide real errors elsewhere.
+  const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+  try {
+    render(
+      <ErrorBoundary fallback={<div>Something went wrong</div>}>
+        <Broken />
+      </ErrorBoundary>,
+    );
 
-  render(
-    <ErrorBoundary fallback={<div>Something went wrong</div>}>
-      <Broken />
-    </ErrorBoundary>,
-  );
-
-  expect(screen.getByText("Something went wrong")).toBeInTheDocument();
+    expect(screen.getByText("Something went wrong")).toBeInTheDocument();
+  } finally {
+    errorSpy.mockRestore();
+  }
 });
 ```
 

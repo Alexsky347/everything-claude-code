@@ -43,8 +43,8 @@ test -f vite.config.js -o -f vite.config.ts -o -f vite.config.mjs   # Vite
 test -f rsbuild.config.js -o -f rsbuild.config.ts                   # Rsbuild
 grep -l "react-scripts" package.json                                # CRA
 test -f webpack.config.js -o -f webpack.config.ts                   # webpack
-test -f .parcelrc -o $(grep -l 'parcel' package.json)              # Parcel
-test -f bunfig.toml -a -n "$(grep '"bun"' package.json)"           # Bun
+{ test -f .parcelrc || grep -q '"parcel"' package.json; }          # Parcel
+{ test -f bunfig.toml && grep -q '"bun"' package.json; }           # Bun
 ```
 
 ## Diagnostic Commands
@@ -160,7 +160,10 @@ Common triggers:
 npm ls react                       # check for duplicates
 npm ls @types/react                # check version alignment
 npm dedupe                         # consolidate duplicates
-npm i react@^19 react-dom@^19      # upgrade as a pair, never independently
+# Only when `npm ls react` reports duplicates or a version mismatch with `@types/react`.
+# Upgrade react and react-dom as a pair (matching the major already in use) — never independently.
+# Replace <major> with the project's React major (17 / 18 / 19); jumping majors is a separate, deliberate change.
+# npm i react@^<major> react-dom@^<major>
 ```
 
 When a library throws on hook usage, it almost always means React is duplicated.
