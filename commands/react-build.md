@@ -53,7 +53,7 @@ bun build ./src/index.tsx --outdir=dist
 
 ## Example Session
 
-```text
+````text
 User: /react-build
 
 Agent:
@@ -140,7 +140,7 @@ $ npm test
 | Remaining issues | 0 |
 
 Build Status: PASS: SUCCESS
-```
+````
 
 ## Common Errors Fixed
 
