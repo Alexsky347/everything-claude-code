@@ -56,9 +56,10 @@ pnpm build 2>/dev/null
 yarn build 2>/dev/null
 bun run build 2>/dev/null
 
-# Typecheck independently of the bundler
+# Typecheck independently of the bundler — only when TypeScript is configured
+# (skips cleanly for JavaScript-only projects)
 npm run typecheck --if-present
-tsc --noEmit -p tsconfig.json
+test -f tsconfig.json && npx --yes tsc --noEmit -p tsconfig.json
 
 # Bundler-specific
 next build                          # Next.js
