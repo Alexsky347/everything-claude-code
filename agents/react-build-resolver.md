@@ -58,8 +58,11 @@ bun run build 2>/dev/null
 
 # Typecheck independently of the bundler — only when TypeScript is configured
 # (skips cleanly for JavaScript-only projects)
+# Uses `npx --no-install` to honor the project's pinned TypeScript version;
+# never auto-install an unpinned compiler, which would produce non-reproducible
+# typecheck results across machines.
 npm run typecheck --if-present
-test -f tsconfig.json && npx --yes tsc --noEmit -p tsconfig.json
+test -f tsconfig.json && npx --no-install tsc --noEmit -p tsconfig.json
 
 # Bundler-specific
 next build                          # Next.js
