@@ -1424,7 +1424,7 @@ The configuration is automatically detected from `.opencode/opencode.json`.
 | Feature | Claude Code | OpenCode | Status |
 |---------|-------------|----------|--------|
 | Agents | PASS: 62 agents | PASS: 12 agents | **Claude Code leads** |
-| Commands | PASS: 78 commands | PASS: 35 commands | **Claude Code leads** |
+| Commands | PASS: 78 commands (legacy shims) | PASS: 35 commands | **Claude Code leads** |
 | Skills | PASS: 235 skills | PASS: 37 skills | **Claude Code leads** |
 | Hooks | PASS: 8 event types | PASS: 11 events | **OpenCode has more!** |
 | Rules | PASS: 29 rules | PASS: 13 instructions | **Claude Code leads** |
