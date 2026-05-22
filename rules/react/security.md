@@ -57,7 +57,7 @@ function safeUrl(url: string): string | undefined {
 <a href={safeUrl(user.website)}>Visit</a>
 ```
 
-React 18+ blocks `javascript:` URLs in `href` and logs a warning, but `data:` URLs and other schemes still slip through. Always validate.
+React warns about `javascript:` URLs in `href` in development mode, but does not block them at runtime. `data:` URLs and other schemes also slip through. Always validate.
 
 ## `target="_blank"` Without `rel`
 
