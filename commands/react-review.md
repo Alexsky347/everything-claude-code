@@ -99,7 +99,7 @@ If `eslint-plugin-react-hooks` or `eslint-plugin-jsx-a11y` is not configured, th
 
 ## Example Usage
 
-```text
+````text
 User: /react-review
 
 Agent:
@@ -145,7 +145,7 @@ useEffect(() => {
 - MEDIUM: 0
 
 Recommendation: FAIL: Block merge until CRITICAL issue is fixed
-```
+````
 
 ## Approval Criteria
 
