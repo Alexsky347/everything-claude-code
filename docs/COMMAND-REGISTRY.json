@@ -952,10 +952,6 @@
       {
         "skill": "golang-testing",
         "count": 2
-      },
-      {
-        "skill": "kotlin-patterns",
-        "count": 2
       }
     ]
   }
