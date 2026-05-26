@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "totalCommands": 78,
+  "totalCommands": 79,
   "commands": [
     {
       "command": "aside",
@@ -422,6 +422,17 @@
       "allAgents": [],
       "skills": [],
       "path": "commands/loop-status.md"
+    },
+    {
+      "command": "marketing-campaign",
+      "description": "Plan and execute a full marketing campaign. Accepts a product brief and returns positioning, landing page copy, email sequence, social posts, ad variants, video scripts, and a content calendar. Can also review existing copy for conversion quality.",
+      "type": "testing",
+      "primaryAgents": [],
+      "allAgents": [],
+      "skills": [
+        "marketing-campaign"
+      ],
+      "path": "commands/marketing-campaign.md"
     },
     {
       "command": "model-route",
@@ -857,7 +868,7 @@
       "planning": 2,
       "refactoring": 1,
       "review": 9,
-      "testing": 50
+      "testing": 51
     },
     "topAgents": [
       {
@@ -940,6 +951,10 @@
       },
       {
         "skill": "golang-testing",
+        "count": 2
+      },
+      {
+        "skill": "kotlin-patterns",
         "count": 2
       }
     ]
